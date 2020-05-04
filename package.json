@@ -15,6 +15,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "flexible.js": "^2.0.19",
     "lodash": "^4.17.15"
   }
 }

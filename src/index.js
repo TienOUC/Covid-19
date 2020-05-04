@@ -1,7 +1,15 @@
-import _ from 'lodash';
+// import flexible from 'flexible.js'
+// flexible();
+
+import './js/showTime'
+require('flexible.js')()
 import './css/index.css'
 
-function component () {
-    console.log('JS has load');
-}
-component()
+
+
+
+// import _ from 'lodash';
+// function component () {
+//     console.log('JS has load');
+// }
+// component();
