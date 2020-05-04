@@ -63,6 +63,14 @@ header .showTime {
   font-size: 0.25rem;
   font-weight: 400;
 }
+.mainbox .panel .chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.1875rem 0.1875rem 0 0.1875rem;
+  width: 100%;
+  height: 7.25rem;
+}
 .no {
   padding: 0.625rem 0.1875rem;
 }
@@ -148,17 +156,10 @@ header .showTime {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
-.map #main {
+.map .china {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 11.9125rem;
-}
-.chart {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 7.25rem;
 }

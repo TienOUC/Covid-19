@@ -1,4 +1,6 @@
 import echarts from 'echarts'
+// 导入 Resize 函数（图表随着页面大小自动缩放）
+const resizeChart = require('./resize');
 
 // 左图一
 (function () {
@@ -13,12 +15,6 @@ import echarts from 'echarts'
         tooltip: {
             trigger: 'axis'
         },
-        // legend: {
-        //     data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
-        //     textStyle: {
-        //         color: '#FFF'
-        //     }
-        // },
         grid: {
             left: '3%',
             right: '4%',
@@ -97,10 +93,7 @@ import echarts from 'echarts'
         ]
     };
     myChart.setOption(option);
-    window.addEventListener('resize', () => {
-        myChart.resize();
-    })
-
+    resizeChart(myChart);
 })();
 
 
@@ -123,9 +116,6 @@ import echarts from 'echarts'
                 }
             }
         },
-        // legend: {
-        //     data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
-        // },
         toolbox: {
             feature: {
                 saveAsImage: {}
@@ -274,9 +264,7 @@ import echarts from 'echarts'
         ]
     };
     myChart.setOption(option);
-    window.addEventListener('resize', () => {
-        myChart.resize();
-    })
+    resizeChart(myChart);
 })();
 
 // 右图一
@@ -346,7 +334,5 @@ import echarts from 'echarts'
         ]
     };
     myChart.setOption(option);
-    window.addEventListener('resize', () => {
-        myChart.resize();
-    })
-})()
+    resizeChart(myChart);
+})();
