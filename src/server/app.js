@@ -16,12 +16,28 @@ const path = require('path');
 app.use(require('cors')());
 
 app.get('/', (req, res, next) => {
-  fs.readFile(path.join(__dirname, './data.json'), 'utf8', (err, data) => {
+  fs.readFile(path.join(__dirname, '../data/data.json'), 'utf8', (err, data) => {
     //  console.log(data); 
     res.send(data);
     next();
   });
 });
 
+
+app.get('/historyData', (req, res, next) => {
+  fs.readFile(path.join(__dirname, '../data/historyData.json'), 'utf8', (err, data) => {
+    //  console.log(data); 
+    res.send(data);
+    next();
+  });
+});
+
+app.get('/weiboHotSearch', (req, res, next) => {
+  fs.readFile(path.join(__dirname, '../data/weiboHotSearch.json'), 'utf8', (err, data) => {
+    //  console.log(data); 
+    res.send(data);
+    next();
+  });
+});
 
 app.listen(3000, () => console.log('http://localhost:3000'));
