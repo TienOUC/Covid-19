@@ -14,6 +14,7 @@ li {
 }
 body {
   background: url(../images/bg.jpg) no-repeat top center;
+  //   background-color: rgb(254, 248, 239);
   line-height: 1.15;
   background-size: cover;
 }
@@ -63,107 +64,41 @@ header {
   color: #fff;
   display: flex;
   max-width: 2560px;
-  margin: 0.25rem auto 0;
+  margin: 0.25rem auto 0.25rem;
+  position: relative;
   .column {
-    flex: 3;
+    flex: 2;
   }
-  .column:nth-child(2) {
-    flex: 5;
-    overflow: hidden;
-  }
-  .panel {
-    position: relative;
-    height: 7.25rem;
-    padding: 0.1875rem 0.1875rem;
-    margin-bottom: 0.1875rem;
-    h2 {
-      height: 0.6rem;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 0.6rem;
-      text-align: center;
-      font-size: 0.35rem;
-      font-weight: 500;
-    }
-    .chart {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-top: 0.625rem;
-      padding: 0.1875rem 0.1875rem 0 0.1875rem;
-      width: 100%;
-      height: 6.25rem;
-    }
-  }
-
-  .no {
-    // background: rgba(101, 132, 226, 0.1);
-    padding: 0.625rem 0.1875rem;
-    .no-hd {
-      position: relative;
-      ul {
-        display: flex;
-        li {
-          position: relative;
-          flex: 1;
-          line-height: 1rem;
-          font-size: 0.875rem;
-          color: #ffeb7b;
-          text-align: center;
-          font-family: 'electronicFont';
-        }
-      }
-    }
-    .no-bd {
-      ul {
-        display: flex;
-        li {
-          flex: 1;
-          text-align: center;
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 0.225rem;
-          height: 0.5rem;
-          line-height: 0.5rem;
-          padding-top: 0.125rem;
-          position: relative;
-        }
-        // li::before {
-        //   position: absolute;
-        //   width: .9375rem;
-        //   height: 10px;
-        //   border-top: 2px solid #02a6b5;
-        //   top: 0;
-        //   left: auto;
-        //   content: '';
-        // }
-      }
-    }
-  }
-
   .map {
-    // border: 1px solid rgba(25, 186, 139, 0.3);
-    position: relative;
-    height: 11.9125rem;
-    .map1 {
-      width: 6.475rem;
-      height: 6.475rem;
+    // border: 1px red solid;
+    position: absolute;
+    // margin: 0 auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 14.375rem;
+     .map1 {
+      width: 9.475rem;
+      height: 9.475rem;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: url(../images/map.png);
       background-size: 100% 100%;
-      opacity: 0.3;
+      opacity: 0.1;
+      z-index: -10;
     }
-    .map2 {
+       .map2 {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 8.0375rem;
-      height: 8.0375rem;
+      width: 11.0375rem;
+      height: 11.0375rem;
       background: url(../images/lbx.png);
       animation: rotate_map2 15s linear infinite;
-      opacity: 0.6;
+      opacity: 0.4;
       background-size: 100% 100%;
     }
     .map3 {
@@ -171,11 +106,11 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 7.075rem;
-      height: 7.075rem;
+      width: 10.075rem;
+      height: 10.075rem;
       background: url(../images/jt.png);
       animation: rotate_map3 10s linear infinite;
-      opacity: 0.6;
+      opacity: 0.4;
       background-size: 100% 100%;
     }
     @keyframes rotate_map2 {
@@ -194,12 +129,29 @@ header {
         transform: translate(-50%, -50%) rotate(-360deg);
       }
     }
-    .china {
+  }
+  .panel {
+    position: relative;
+    height: 14.375rem;
+    padding: 0.1875rem 0.1875rem;
+    // margin-bottom: 0.1875rem;
+    // background-color: rgb(254, 248, 239);
+    h2 {
+      height: 0.6rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 0.6rem;
+      text-align: center;
+      font-size: 0.35rem;
+      font-weight: 500;
+    }
+    .chart {
+      // background-color: rgb(254, 248, 239);
       position: absolute;
       top: 0;
       left: 0;
+      padding: 0 0.1875rem;
       width: 100%;
-      height: 11.9125rem;
+      height: 14.375rem;
     }
   }
 }
@@ -208,6 +160,6 @@ footer {
   position: relative;
   background: url(../images/footer.png) no-repeat;
   height: 0.5rem;
-  top: -0.125rem;
+  top: .125rem;
   background-size: 100% 100%;
 }

@@ -44,8 +44,8 @@ const resizeChart = require('./resize');
                 width: '80%',
                 height: '80%',
                 sizeRange: [20, 50],
-                rotationRange: [-60, 60],
-                rotationStep: 10,
+                rotationRange: [-90, 90],
+                rotationStep: 30,
                 gridSize: 0,
                 drawOutOfBound: false,
                 // Global text style
@@ -79,3 +79,6 @@ const resizeChart = require('./resize');
         resizeChart(myChart);
     })
 })();
+
+
+

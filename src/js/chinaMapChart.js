@@ -66,7 +66,6 @@ const resizeChart = require('./resize');
             ],
             tooltip: {
                 formatter: function (params) {
-                    // console.log( params);
                     return `
                     地区：${params.name} </br>
                     累计确诊：${(params.data && params.data.value) || 0} </br>
