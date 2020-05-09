@@ -1,9 +1,9 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');  // 这里必须这样引入，不然报错，原写法改了，坑！
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')  // 这里必须这样引入，不然报错，原写法改了，坑！
 
 module.exports = {
-    mode: 'development',
     entry: {
         index: './src/index.js',
         global: './src/global.js'
@@ -33,7 +33,8 @@ module.exports = {
             title: '全球疫情实时数据报告',
             filename: 'global.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         rules: [
@@ -50,5 +51,12 @@ module.exports = {
                 use: ['file-loader']
             }
         ]
-    }
+    },
+    devServer: {
+        open: true,
+        port: 8000,
+        contentBase: 'src',
+        hot: true
+    },
+    mode: 'development'
 }
