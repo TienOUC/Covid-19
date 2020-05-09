@@ -1,11 +1,10 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
-<hr> 
+[]()
 
 ## 1. 使用
 
-> a. 安装依赖包   
+> a. 安装依赖包  
 > b. `server` 目录下先`node crawler.js`抓取数据，然后 `node app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）
-
 
 ## 2. 注意事项
 
@@ -20,10 +19,10 @@
   }
 ```
 
-所以引入的是本地的 `flexible.js`，你可以根据自身需求来选择。   
+所以引入的是本地的 `flexible.js`，你可以根据自身需求来选择。  
 **`flexible.js` 安装**
 
- `npm i -S flexible.js` 安装 `npm` 包，然后用以下两种方式引入
+`npm i -S flexible.js` 安装 `npm` 包，然后用以下两种方式引入
 
 ```js
 import flexible from 'flexible.js' // 1.引入页面适应模块 flexible
@@ -41,7 +40,7 @@ require('flexible.js')() // 2.或者require引入
 我使用的 `webpack` 是 `4.43.0` 版本，在引入 `CleanWebpackPlugin` 插件时发现老版本的引入写法已经弃用了，新版本的引入方法是
 
 ```js
-const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 这里必须这样引入，不然会报错，原写法改了   
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 这里必须这样引入，不然会报错，原写法改了
 ...
 
 配置：
@@ -126,6 +125,10 @@ const task1 = () => {
 task1()
 ```
 
-### 5. 代码写的很乱，后续有空了会抽离优化，或者考虑用 Vue 重构组件化，目前就先这样吧。
+## 3. 最后
 
-## 努力让自己在前端的路上走的更远一点 :tada: :tada: :tada: :100: ， 最后，求个 :star: ， 我这前端小白的仓库太白啦~
+代码写的很乱，后续有空了会抽离优化，或者考虑用 Vue 重构组件化，多端适配也需要优化，目前就先这样吧。
+
+<hr>
+
+#### 努力让自己在前端的路上走的更远一点 :tada: :tada: :tada: :100: ， 最后，求个 :star: ， 我这前端小白的仓库太白啦~
