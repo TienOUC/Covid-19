@@ -1,6 +1,7 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw2kmo0aj31lf0u0aii.jpg)
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw2kvye0j31lp0u0tjn.jpg)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7nzb2yj30xc0hfju5.jpg)
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7npy4ij30xc0hcq60.jpg)
 
 ## 1. 使用
 
