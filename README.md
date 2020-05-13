@@ -1,4 +1,6 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqvjy47jcg31jk0u0u13.gif)
+
 
 ## 1. 使用
 
