@@ -44,11 +44,21 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: './img'
+                    }
+                }]
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ['file-loader']
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: './fonts'
+                    }
+                }]
             }
         ]
     },
@@ -58,5 +68,8 @@ module.exports = {
         contentBase: 'src',
         hot: true
     },
-    mode: 'development'
+    mode: 'development',
+    performance: {
+        hints: false
+    }
 }
