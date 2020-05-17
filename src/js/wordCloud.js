@@ -5,7 +5,7 @@ import axios from 'axios'
 const resizeChart = require('./resize');
 
 (function () {
-    axios.get('http://localhost:3000/weiboHotSearch/').then((res) => {
+    axios.get('http://localhost:8080/api/weiboHotSearch').then(res => {
         // 获取历史数据
         const result = res.data;
         // console.log(res.data);
@@ -77,6 +77,8 @@ const resizeChart = require('./resize');
         // }
         myChart.setOption(option);
         resizeChart(myChart);
+    }).catch(err => {
+        console.log(err);
     })
 })();
 

@@ -5,7 +5,7 @@ const resizeChart = require('./resize');
 
 (function () {
 
-    axios.get('http://localhost:3000/historyData').then((res) => {
+    axios.get('http://localhost:8080/api/historyData').then(res => {
         // 获取历史数据
         const result = res.data.data;
         // console.log('result=' + result);
@@ -450,6 +450,8 @@ const resizeChart = require('./resize');
         myChart_3.setOption(option_3);
         resizeChart(myChart_3);
 
+    }).catch(err => {
+        console.log(err);
     })
 })();
 

@@ -34,12 +34,12 @@ function writeData () {
         throw err
       });
   }
-  // 每天的凌晨1点1分0秒触发
+  // 每天的凌晨1点1分15秒触发
   nodeSchedule.scheduleJob('15 1 1 * * *', function () {
     getData();
   });
 
-  // 爬取万矿疫情数据  官方Web API使用说明 :（ https://www.windquant.com/qntcloud/help/id-fdc2e335-7f50-4b63-b79c-07a2582cf15c ）
+  // 爬取万矿疫情数据  需注册账号并登陆才能爬取数据，官方Web API使用说明 :（ https://www.windquant.com/qntcloud/help/id-fdc2e335-7f50-4b63-b79c-07a2582cf15c ）
   // S6274770 全国累计确诊
   // S6274772 全国累计治愈
   // S6274771 全国累计死亡

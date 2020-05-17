@@ -1,43 +1,37 @@
-// const webpack = require('webpack');
-// const webpackDevMiddleware = require('webpack-dev-middleware');
-// const config = require('../webpack.config');
-// const complier = webpack(config);
-
-// const webpack = require('webpack');
-// const config = require('../webpack.config');
-
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser'); 
 
-
+// 解析request
+app.use(bodyParser.urlencoded({ extended: false }));
 // 处理跨域
 app.use(require('cors')());
 
-app.get('/', (req, res, next) => {
+app.get('/api', (req, res, next) => {
   fs.readFile(path.join(__dirname, '../data/data.json'), 'utf8', (err, data) => {
-    //  console.log(data); 
+    if (err) res.send('data.json读取失败')
     res.send(data);
     next();
   });
 });
 
 
-app.get('/historyData', (req, res, next) => {
+app.get('/api/historyData', (req, res, next) => {
   fs.readFile(path.join(__dirname, '../data/historyData.json'), 'utf8', (err, data) => {
-    //  console.log(data); 
+    if (err) res.send('historyData.json读取失败')
     res.send(data);
     next();
   });
 });
 
-app.get('/weiboHotSearch', (req, res, next) => {
+app.get('/api/weiboHotSearch', (req, res, next) => {
   fs.readFile(path.join(__dirname, '../data/weiboHotSearch.json'), 'utf8', (err, data) => {
-    //  console.log(data); 
+    if (err) res.send('weiboHotSearch.json读取失败')
     res.send(data);
     next();
   });
 });
 
-app.listen(3000, () => console.log('http://localhost:3000'));
+app.listen(8080, () => console.log('http://localhost:8080'));

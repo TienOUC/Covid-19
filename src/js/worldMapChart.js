@@ -9,7 +9,7 @@ const resizeChart = require('./resize');
     const myChart_rose = echarts.init(document.querySelector('.rose_chart'));
 
     // 发送请求获取各省数据
-    axios.get('http://localhost:3000/').then((res) => {
+    axios.get('http://localhost:8080/api').then(res => {
         const result = res.data.getListByCountryTypeService2true
         // 世界图数组
         let filterArr = []
@@ -434,6 +434,8 @@ const resizeChart = require('./resize');
         };
 
         myChart_rose.setOption(option_rose)
+    }).catch(err => {
+        console.log(err);
     })
     resizeChart(myChart);
     resizeChart(myChart_rose);

@@ -8,7 +8,7 @@ const resizeChart = require('./resize');
 (function () {
     const myChart = echarts.init(document.querySelector('.map .china'));
     // 发送请求获取各省数据
-    axios.get('http://localhost:3000/').then((res) => {
+    axios.get('http://localhost:8080/api').then(res => {
         const result = res.data.getAreaStat
         var filterArr = []
         // 过滤出合适的属性值
@@ -96,6 +96,8 @@ const resizeChart = require('./resize');
             ]
         }
         myChart.setOption(option)
+    }).catch(err => { 
+        console.log(err);
     })
     resizeChart(myChart);
 })();

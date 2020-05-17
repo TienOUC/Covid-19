@@ -1,4 +1,6 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
+[ 展示页面连接 ::link ](http://139.129.222.60/covid/)
+
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7nzb2yj30xc0hfju5.jpg)
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7npy4ij30xc0hcq60.jpg)
