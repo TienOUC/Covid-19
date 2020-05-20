@@ -44,9 +44,9 @@ const resizeChart = require('./resize');
                 width: '80%',
                 height: '80%',
                 sizeRange: [20, 50],
-                rotationRange: [-90, 90],
-                rotationStep: 30,
-                gridSize: 0,
+                rotationRange: [-30, 30],
+                rotationStep: 10,
+                gridSize: 5,
                 drawOutOfBound: false,
                 // Global text style
                 textStyle: {
@@ -57,9 +57,9 @@ const resizeChart = require('./resize');
                         color: function () {
                             // Random color
                             return 'rgb(' + [
-                                Math.round(Math.random() * 160),
-                                Math.round(Math.random() * 160),
-                                Math.round(Math.random() * 160)
+                                Math.round(Math.random() * 255),
+                                Math.round(Math.random() * 255),
+                                Math.round(Math.random() * 255)
                             ].join(',') + ')';
                         }
                     },

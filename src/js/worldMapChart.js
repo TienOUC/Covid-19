@@ -51,7 +51,7 @@ const resizeChart = require('./resize');
         });
 
         let source = [['Country', 'Confirmed', 'SQRT', 'Dead']]
-        source = source.concat(a.slice(0, 20))
+        source = source.concat(a.slice(0, 15))
         // console.log(source);
 
         // 世界地图数据及显示形式
@@ -321,12 +321,12 @@ const resizeChart = require('./resize');
             },
             title: {
                 text: '全球确诊TOP20',
-                subtext: '\n数据源：丁香园\n\n—— by Tien',
+                subtext: '\n数据源：丁香园',
                 x: '60%',
-                y: '150',
+                y: '250',
                 textStyle:
                 {
-                    fontSize: 27,
+                    fontSize: 20,
                     fontWeight: 'bold',
                     fontFamily: 'Microsoft YaHei',
                     color: 'rgba(255,255,255,.7)'
@@ -395,7 +395,8 @@ const resizeChart = require('./resize');
                                 formatter: function (params) {
 
                                     if (params.data[1] > 9000) {
-                                        return `${params.data[0]}\n确诊:${params.data[1]}\n死亡:${params.data[3]}`;
+                                        // return `${params.data[0]}\n确诊:${params.data[1]}\n死亡:${params.data[3]}`;
+                                        return `${params.data[0]}`;
                                     }
                                     else { return ""; }
                                 },

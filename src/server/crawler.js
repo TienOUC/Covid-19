@@ -48,7 +48,22 @@ function writeData () {
   // S6274778 当日新增疑似
   // S6274777 当日新增治愈
   // S6274776 当日新增死亡
-  const dataUrl = 'https://www.windquant.com/qntcloud/data/edb?userid=43a1bf78-8e78-48b7-bdff-65e041ffe268&indicators=S6274770,S6274772,S6274771,S6274773,S6274775,S6274778,S6274777,S6274776,S6274780,S6274782,S6274784&startdate=2020-01-20&enddate=2020-05-05'
+
+  function getTime () {
+    let res = null
+    const myDate = new Date();
+    var year = myDate.getFullYear();
+    var month = myDate.getMonth() + 1 > 9 ? (myDate.getMonth() + 1).toString() : '0' + (myDate.getMonth() + 1);
+    var day = myDate.getDate() > 9 ? myDate.getDate().toString() : '0' + myDate.getDate();
+    res = `${year}-${month}-${day}`
+    return res
+  }
+  const baseURL = 'https://www.windquant.com/qntcloud/data/edb?userid=43a1bf78-8e78-48b7-bdff-65e041ffe268&'
+  const baseAPI = 'indicators=S6274770,S6274772,S6274771,S6274773,S6274775,S6274778,S6274777,S6274776,S6274780,S6274782,S6274784&'
+  const baseTime = 'startdate=2020-01-20&enddate=' + getTime()
+  // const dataUrl = 'https://www.windquant.com/qntcloud/data/edb?userid=43a1bf78-8e78-48b7-bdff-65e041ffe268&indicators=S6274770,S6274772,S6274771,S6274773,S6274775,S6274778,S6274777,S6274776,S6274780,S6274782,S6274784&startdate=2020-01-20&enddate=2020-05-05'
+  const dataUrl = baseURL + baseAPI + baseTime
+
   function getHistorydata () {
     superagent.get(dataUrl)
       .then(res => {
@@ -62,10 +77,23 @@ function writeData () {
       });
   }
 
-  // 每天的凌晨1点1分30秒触发
-  nodeSchedule.scheduleJob('30 1 1 * * *', function () {
-    getHistorydata();
-  });
+  const { Builder, By, Key, until } = require('selenium-webdriver');
+
+  (async function example () {
+    let driver = await new Builder().forBrowser('chrome').build();
+    try {
+      await driver.get('https://www.windquant.com/cas/login?service=https%3A%2F%2Fwww.windquant.com%2Fqntcloud%2Flogin%2Fcas.go');
+      await driver.findElement(By.id('username')).sendKeys('万矿ID', Key.TAB);
+      await driver.findElement(By.id('password')).sendKeys('万矿密码', Key.RETURN);
+      await driver.wait(until.titleIs('万矿-高端量化分析云平台-Wind'), 1000);
+    } finally {
+      // 每天的凌晨1点1分30秒触发
+      nodeSchedule.scheduleJob('30 1 1 * * *', function () {
+        getHistorydata();
+      });
+    }
+  })();
+
 
   // 爬取微博热搜
   const weiboURL = 'https://s.weibo.com';
