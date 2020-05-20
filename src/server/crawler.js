@@ -83,8 +83,8 @@ function writeData () {
     let driver = await new Builder().forBrowser('chrome').build();
     try {
       await driver.get('https://www.windquant.com/cas/login?service=https%3A%2F%2Fwww.windquant.com%2Fqntcloud%2Flogin%2Fcas.go');
-      await driver.findElement(By.id('username')).sendKeys('万矿ID', Key.TAB);
-      await driver.findElement(By.id('password')).sendKeys('万矿密码', Key.RETURN);
+      await driver.findElement(By.id('username')).sendKeys('dktianf@163.com', Key.TAB);
+      await driver.findElement(By.id('password')).sendKeys('mengduonao123', Key.RETURN);
       await driver.wait(until.titleIs('万矿-高端量化分析云平台-Wind'), 1000);
     } finally {
       // 每天的凌晨1点1分30秒触发

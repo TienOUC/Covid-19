@@ -144,8 +144,8 @@ header {
     position: relative;
     height: 11.9125rem;
     .map1 {
-      width: 6.475rem;
-      height: 6.475rem;
+      width: 7.475rem;
+      height: 7.475rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -159,8 +159,8 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 8.0375rem;
-      height: 8.0375rem;
+      width: 9.0375rem;
+      height: 9.0375rem;
       background: url(../images/lbx.png);
       animation: rotate_map2 15s linear infinite;
       opacity: 0.6;
@@ -171,8 +171,8 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 7.075rem;
-      height: 7.075rem;
+      width: 8.075rem;
+      height: 8.075rem;
       background: url(../images/jt.png);
       animation: rotate_map3 10s linear infinite;
       opacity: 0.6;
@@ -210,4 +210,35 @@ footer {
   height: 0.5rem;
   top: -0.125rem;
   background-size: 100% 100%;
+}
+
+@media screen and (orientation: portrait) {
+  html {
+    width: 100vmin;
+    height: 100vmax;
+  }
+  body {
+    width: 100vmin;
+    height: 100vmax;
+  }
+  .main {
+    width: 100vmax;
+    height: 100vmin;
+    transform-origin: top left;
+    transform: rotate(90deg) translate(0, -100vmin);
+  }
+}
+@media screen and (orientation: landscape) {
+  html {
+    width: 100vmax;
+    height: 100vmin;
+  }
+  body {
+    width: 100vmax;
+    height: 100vmin;
+  }
+  .main {
+    width: 100vmax;
+    height: 100vmin;
+  }
 }
