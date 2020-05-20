@@ -8,7 +8,7 @@
 ## 1. 使用
 
 > a. 安装依赖包  
-> b. `server` 目录下先`node crawler.js`抓取数据，然后 `node app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）
+> b. `server` 目录下先修改`crawler.js`中的万矿ID和万矿密码，然后 `node crawler.js app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）
 
 ## 2. 注意事项
 
