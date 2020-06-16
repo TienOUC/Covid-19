@@ -9,9 +9,8 @@
 
 > a. 安装依赖包  
 > b. `server` 目录下先修改`crawler.js`中的万矿ID和万矿密码，然后 `node crawler.js app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）   
-
-> [Selenium+Node+无界面Chrome爬取数据](http://www.dodolo.top/pages/server/centos/)   
-> 图形界面下把与Chrome版本对应的chromedriver文件放在脚本目录即可
+> c. [Selenium+Node+无界面Chrome爬取数据](http://www.dodolo.top/pages/server/centos/)   
+> d. 图形界面下把与Chrome版本对应的chromedriver文件放在脚本目录即可
    
    
 ## 2. 注意事项
