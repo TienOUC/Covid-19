@@ -1,5 +1,5 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
-:link: [ 展示页面连接 ](http://139.129.222.60/covid/)
+:link: [ 展示页面连接 ](http://www.dodolo.top/covid/)
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7nzb2yj30xc0hfju5.jpg)
 
@@ -8,8 +8,11 @@
 ## 1. 使用
 
 > a. 安装依赖包  
-> b. `server` 目录下先修改`crawler.js`中的万矿ID和万矿密码，然后 `node crawler.js app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）
-
+> b. `server` 目录下先修改`crawler.js`中的万矿ID和万矿密码，然后 `node crawler.js app.js` 启动即可（首次启动需修改 `crawler.js` 中的抓取时间，不然要等好久才会有数据哒！）   
+> c. [Selenium+Node+无界面Chrome爬取数据](http://www.dodolo.top/pages/server/centos/)   
+> d. 图形界面下把与Chrome版本对应的chromedriver文件放在脚本目录即可
+   
+   
 ## 2. 注意事项
 
 ### 1. flexible.js
