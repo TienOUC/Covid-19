@@ -5,17 +5,12 @@ import axios from 'axios'
 const resizeChart = require('./resize');
 // chinaMap chart
 (function () {
-    const myChart = echarts.init(document.querySelector('.world_map'))
-    const myChart_rose = echarts.init(document.querySelector('.rose_chart'));
-
+    const myChart = echarts.init(document.querySelector('.world'))
     // 发送请求获取各省数据
     axios.get('http://localhost:8080/api').then(res => {
         const result = res.data.getListByCountryTypeService2true
         // 世界图数组
         let filterArr = []
-        // 玫瑰图legenddata
-        let legenddata = []
-
         // 过滤出合适的属性值
         result.forEach((item) => {
             filterArr.push({
@@ -24,36 +19,7 @@ const resizeChart = require('./resize');
                 deadCount: item.deadCount, // 死亡人数
                 curedCount: item.curedCount, // 治愈人数
             })
-
-            legenddata.push({
-                name: item.provinceName,
-                Confirmed: item.confirmedCount,
-                Dead: item.deadCount
-            })
         })
-        // console.log(filterArr);
-        // console.log(legenddata);
-
-        // 根据Confirmed属性值对 legenddata 数组进行排序
-        function compare (key) {
-            return function (value1, value2) {
-                var a = value1[key];
-                var b = value2[key];
-                return b - a;
-            }
-        }
-        let legendData = legenddata.sort(compare('Confirmed'));
-
-        // 把name，Confirmed，Dead以数组形式push到source数据列表中
-        let a = []
-        legendData.forEach(ele => {
-            a.push([ele.name, ele.Confirmed, ((ele.Confirmed / 1000) > 1000 ? (ele.Confirmed / 1000) * 0.25 : (ele.Confirmed / 1000)), ele.Dead])
-        });
-
-        let source = [['Country', 'Confirmed', 'SQRT', 'Dead']]
-        source = source.concat(a.slice(0, 15))
-        // console.log(source);
-
         // 世界地图数据及显示形式
         const nameMap = {
             'Singapore Rep.': '新加坡',
@@ -248,19 +214,19 @@ const resizeChart = require('./resize');
                     type: 'piecewise', //piecewise分段   continuous连续
                     bottom: '100px',
                     // orient:'horizontal',
-                    left: '50px',
-                    pieces: [     
-                        { gte: 500000 }, // [500000, Infinity]
+                    left: '100px',
+                    pieces: [
+                        { gte: 1000000 }, // [1000000, Infinity]
+                        { gt: 500000, lte: 999999 }, // (500000, 999999]
                         { gt: 100000, lte: 499999 }, // (100000, 499999]
                         { gt: 10000, lte: 99999 }, // (10000, 99999]
                         { gt: 1000, lte: 9999 }, // (1000, 9999]
-                        { gt: 500, lte: 999 }, // (500, 999]
-                        { gt: 1, lte: 499 }, // (1, 499]
+                        { gt: 1, lte: 999 }, // (1, 999]
                         { value: 0 }, // [0]
                     ],
                     inRange: {
                         // 设置地图颜色
-                        color: ['#ffffff', '#ffccbc', '#f59e83', '#e55a4e', '#cb2a2f', '#ae233e', '#811c24']
+                        color: ['#ffffff', '#ffccbc', '#f59e83', '#e55a4e', '#cb2a2f', '#ae233e', '#811c24', '#660000']
                     },
                     textStyle: {
                         color: '#fff'
@@ -300,136 +266,8 @@ const resizeChart = require('./resize');
         }
         myChart.setOption(option)
 
-        // 配置玫瑰图数据及显示形式
-        const option_rose = {
-            dataset: {
-                source: source
-            },
-            toolbox: {
-                show: true,//false则不显示工具栏
-                // feature: {
-                //     saveAsImage: { show: true, type: 'jpeg' }
-                // }
-            },
-            title: {
-                text: '全球确诊TOP20',
-                subtext: '\n数据源：丁香园',
-                x: '60%',
-                y: '250',
-                textStyle:
-                {
-                    fontSize: 20,
-                    fontWeight: 'bold',
-                    fontFamily: 'Microsoft YaHei',
-                    color: 'rgba(255,255,255,.7)'
-                },
-                subtextStyle:
-                {
-                    fontStyle: 'italic',
-                    fontSize: 14
-                }
-            },
-            legend: {
-                x: '60%',//水平位置，【left\center\right\数字】
-                y: '350',//垂直位置，【top\center\bottom\数字】
-                align: 'left',//字在图例的左边或右边【left/right】
-                orient: 'vertical',//图例方向【horizontal/vertical】
-                icon: "circle",   //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
-                textStyle://图例文字
-                {
-                    fontFamily: '微软雅黑',
-                    color: 'rgba(255,255,255,.7)',
-
-                },
-                data: legendData.name,
-                formatter: function (params) {
-                    // console.log('图例参数', params)
-                    for (var i = 0; i < legenddata.length; i++) {
-                        if (legenddata[i].name == params) {
-                            return `${params}——确诊:${legendData[i].Confirmed}\t死亡:${legendData[i].Dead}`;
-                        }
-                    }
-                }
-
-            },
-
-            calculable: true,
-            series: [
-                {
-                    name: '半径模式',
-                    type: 'pie',
-                    clockWise: false,
-                    radius: [20, 400],
-                    center: ['40%', '60%'],
-                    roseType: 'area',
-                    encode: {
-                        itemName: 'Country',
-                        value: 'SQRT'
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: function (params) {
-                                var colorList = [
-                                    "#a71a4f", "#bc1540", "#c71b1b", "#d93824", "#ce4018", "#d15122", "#e7741b", "#e58b3d", "#e59524", "#dc9e31", "#da9c2d", "#d2b130", "#bbd337", "#8cc13f", "#67b52d", "#53b440", "#48af54", "#479c7f", "#48a698", "#57868c"
-                                ];
-                                return colorList[params.dataIndex]
-                            },
-                            label: {
-                                position: 'inside',
-                                textStyle:
-                                {
-                                    fontWeight: 'bold',
-                                    fontFamily: 'Microsoft YaHei',
-                                    color: '#FAFAFA',
-                                    fontSize: 10
-                                },
-                                //formatter:'{b} \n{@Confirmed}例 \n死亡{@Dead}',//注意这里大小写敏感哦
-                                formatter: function (params) {
-
-                                    if (params.data[1] > 9000) {
-                                        // return `${params.data[0]}\n确诊:${params.data[1]}\n死亡:${params.data[3]}`;
-                                        return `${params.data[0]}`;
-                                    }
-                                    else { return ""; }
-                                },
-
-                            },
-                        },
-                    },
-
-                },
-                {
-                    name: '透明圆圈',
-                    type: 'pie',
-                    radius: [10, 27],
-                    center: ['40%', '60%'],
-                    itemStyle: {
-                        color: 'rgba(250, 250, 250, 0.3)',
-                    },
-                    data: [
-                        { value: 10, name: '' }
-                    ]
-                },
-                {
-                    name: '透明圆圈',
-                    type: 'pie',
-                    radius: [10, 35],
-                    center: ['40%', '60%'],
-                    itemStyle: {
-                        color: 'rgba(250, 250, 250, 0.3)',
-                    },
-                    data: [
-                        { value: 10, name: '' }
-                    ]
-                }
-            ]
-
-        };
-
-        myChart_rose.setOption(option_rose)
     }).catch(err => {
         console.log(err);
     })
     resizeChart(myChart);
-    resizeChart(myChart_rose);
 })();

@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')  // 这里必须�
 module.exports = {
     entry: {
         index: './src/index.js',
-        global: './src/global.js'
+        global: './src/global.js',
+        world: './src/world.js'
     },
     output: {
         filename: '[name].bundle.js',
@@ -32,6 +33,16 @@ module.exports = {
             hash: true,
             title: '全球疫情实时数据报告',
             filename: 'global.html'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['world'], //添加引入的js,也就是entry中的key
+            template: './src/html/world.html',
+            // minify: {
+            //     collapseWhitespace: true //折叠空白区域 也就是压缩代码
+            // },
+            hash: true,
+            title: '全球疫情实时数据报告',
+            filename: 'world.html'
         }),
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin()

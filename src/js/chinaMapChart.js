@@ -24,21 +24,24 @@ const resizeChart = require('./resize');
         })
         // console.log(filterArr[0]);
         let confirmed_Count = 0,
-            suspected_Count = 0,
             cured_Count = 0,
-            dead_Count = 0;
+            dead_Count = 0,
+            // suspected_Count = 0,
+            currentConfirmed_Count = 0;
 
         for (let i = 0; i < filterArr.length; i++) {
             confirmed_Count += filterArr[i].value
-            suspected_Count += filterArr[i].suspectedCount
             cured_Count += filterArr[i].curedCount
             dead_Count += filterArr[i].deadCount
+           // suspected_Count += filterArr[i].suspectedCount
+            currentConfirmed_Count += filterArr[i].currentConfirmedCount
         }
+
         document.querySelector('.confirmed_Count').innerHTML = confirmed_Count
-        document.querySelector('.suspected_Count').innerHTML = suspected_Count
         document.querySelector('.cured_Count').innerHTML = cured_Count
         document.querySelector('.dead_Count').innerHTML = dead_Count
-
+        // document.querySelector('.suspected_Count').innerHTML = suspected_Count
+        document.querySelector('.currentConfirmed_Count').innerHTML = currentConfirmed_Count
         // 使用刚指定的配置项和数据显示图表。
         const option = {
             visualMap: [
