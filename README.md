@@ -1,5 +1,5 @@
 ## Echarts 学习实践，赶在国内疫情末尾写了个疫情展示页面
-:link: [ 展示页面连接 ](http://www.dodolo.top/covid/)
+:link: [ 展示页面连接 ](http://blog.dodolo.top/covid/)
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1geqw7nzb2yj30xc0hfju5.jpg)
 
