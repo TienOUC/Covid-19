@@ -13,7 +13,8 @@ li {
   src: url(../fonts/DS-Digital-BoldItalic.woff);
 }
 body {
-  background: url(../images/bg.jpg) no-repeat top center;
+  // background: url(../images/bg.jpg) no-repeat top center;
+  background-color: #0d0231;
   line-height: 1.15;
   background-size: cover;
 }
@@ -150,6 +151,8 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
       background: url(../images/map.png);
       background-size: 100% 100%;
       opacity: 0.3;
@@ -159,10 +162,14 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
       width: 9.0375rem;
       height: 9.0375rem;
       background: url(../images/lbx.png);
       animation: rotate_map2 15s linear infinite;
+      -ms-animation: rotate_map2 15s linear infinite;
+      -webkit-animation: rotate_map2 15s linear infinite;
       opacity: 0.6;
       background-size: 100% 100%;
     }
@@ -171,27 +178,39 @@ header {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
       width: 8.075rem;
       height: 8.075rem;
       background: url(../images/jt.png);
       animation: rotate_map3 10s linear infinite;
+      -ms-animation: rotate_map3 10s linear infinite;
+      -webkit-animation: rotate_map3 10s linear infinite;
       opacity: 0.6;
       background-size: 100% 100%;
     }
     @keyframes rotate_map2 {
-      form {
+      from {
         transform: translate(-50%, -50%) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
       }
       to {
         transform: translate(-50%, -50%) rotate(360deg);
+        -ms-transform: translate(-50%, -50%) rotate(360deg);
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
       }
     }
     @keyframes rotate_map3 {
-      form {
+      from {
         transform: translate(-50%, -50%) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) rotate(0deg);
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
       }
       to {
         transform: translate(-50%, -50%) rotate(-360deg);
+        -ms-transform: translate(-50%, -50%) rotate(-360deg);
+        -webkit-transform: translate(-50%, -50%) rotate(-360deg);
       }
     }
     .china {
