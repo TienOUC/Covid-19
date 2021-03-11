@@ -16,11 +16,11 @@ app.get('/api', (req, res, next) => {
     if (err) res.send('data.json读取失败')
     res.send(data);
     next();
-  });`
+  });
 });
 
 app.get('/api/historyData', (req, res, next) => {
-`
+
   fs.readFile(path.join(__dirname, '../data/historyData.json'), 'utf8', (err, data) => {
     if (err) res.send('historyData.json读取失败')
     res.send(data);

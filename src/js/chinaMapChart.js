@@ -16,9 +16,9 @@ const resizeChart = require('./resize');
             filterArr.push({
                 name: item.provinceShortName, // 省份
                 value: item.confirmedCount, // 累计确诊
-                deadCount: item.deadCount, // 死亡人数
                 curedCount: item.curedCount, // 治愈人数
-                suspectedCount: item.suspectedCount, //疑似感染人数
+                deadCount: item.deadCount, // 死亡人数
+                // suspectedCount: item.suspectedCount, //疑似感染人数
                 currentConfirmedCount: item.currentConfirmedCount, // 当前确诊人数
             })
         })
